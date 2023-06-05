@@ -122,7 +122,7 @@ contract TokenBoundToken is ERC721Holder, PullPayment, ERC721Base {
      *
      * - `to` cannot be the zero address.
      */
-    function ownerMint(address to) public onlyOwner returns (uint256) {
+    function ownerMint(address to) public virtual onlyOwner returns (uint256) {
         require(to != address(0), "TBT: mint to the zero address");
         uint256 newTokenBoundTokenId = _incrementTokenBoundTokenId();
         _safeMint(to, newTokenBoundTokenId);
